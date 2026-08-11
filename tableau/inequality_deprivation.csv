@@ -1,0 +1,13 @@
+provider_org_code,la_code,la_name,catchment_caveat,is_specialist_centre,imd_avg_rank,imd_avg_score,health_avg_rank,health_avg_score,mean_pressure_index,mean_rtt_over18_share,mean_rtt_growth,consultants_per_1000_fte,total_fte,fiscal_year
+RBN,E08000011,Knowsley,"Post-2023 merger trust also runs St Helens Hospital (St Helens LA) and Southport & Formby District General (Sefton LA) - Whiston is the largest/main emergency site, chosen as the single-LA anchor, not a claim the whole trust is Knowsley-only",False,3,43.006,2,1.381,48.47666549914224,0.2748760093622004,1.2504851020667733,45.9,9948.409,2025-26
+REP,E08000012,Liverpool,Regional specialist centre - catchment extends across the whole ICB and beyond,True,4,42.412,3,1.347,7.662697413389933,0.34613531746031734,1.070798770933391,57.97,1660.806,2025-26
+RBQ,E08000012,Liverpool,Regional specialist centre - catchment extends across the whole ICB and beyond,True,4,42.412,3,1.347,25.626737973622834,0.24077196531791922,1.7017477114111124,57.81,1871.949,2025-26
+RBS,E08000012,Liverpool,Regional specialist paediatric centre - catchment extends across the whole ICB and beyond,True,4,42.412,3,1.347,17.003850203129325,0.37176506024096384,0.5172583014187161,70.53,4020.659,2025-26
+REM,E08000012,Liverpool,Aintree site draws significantly from Sefton too,False,4,42.412,3,1.347,56.78330647411306,0.3604225848563969,2.3174603419976045,56.18,14143.206,2025-26
+RET,E08000012,Liverpool,Regional specialist neuro centre - catchment extends across the whole ICB and beyond,True,4,42.412,3,1.347,29.845497503962534,0.2592398039215683,0.3578870028064051,75.06,1462.274,2025-26
+REN,E08000015,Wirral,Regional specialist cancer centre - catchment extends across the whole ICB and beyond,True,56,29.589,21,0.962,19.568113164332814,0.02832895927601808,0.35797536471673264,51.08,1847.292,2025-26
+RBL,E08000015,Wirral,,False,56,29.589,21,0.962,51.94216661977748,0.325060961158657,0.46734273371381885,52.16,5894.733,2025-26
+RWW,E06000007,Warrington,Also runs Halton General (Halton LA),False,109,18.942,60,0.278,47.191116186802816,0.28525401621223284,0.4610792823644842,49.65,4156.781,2025-26
+RJR,E06000050,Cheshire West and Chester,,False,112,18.083,74,0.089,64.58818926726157,0.4154368868541537,0.4785380985113935,53.22,4365.52,2025-26
+RBT,E06000049,Cheshire East,,False,131,14.475,96,-0.186,53.421969840422165,0.307853347427766,1.2536894319108487,36.66,5136.603,2025-26
+RJN,E06000049,Cheshire East,,False,131,14.475,96,-0.186,55.7081264513682,0.3315543335761108,1.8211691661824476,39.5,2402.952,2025-26

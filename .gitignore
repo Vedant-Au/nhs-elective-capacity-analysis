@@ -1,0 +1,45 @@
+# =============================================================================
+# What is excluded, and why.
+#
+# Two categories only: things GitHub will not accept, and things that are
+# rebuildable from what IS committed. Nothing analytical is excluded — every
+# script, query, config, output and document that constitutes the work is
+# tracked.
+# =============================================================================
+
+# ---- Exceeds GitHub's limits --------------------------------------------
+# The DuckDB warehouse is ~154MB. GitHub hard-blocks single files over 100MB
+# and warns above 50MB. It is fully rebuildable:
+#   python3 scripts/build_warehouse.py
+nhs_warehouse.db
+*.db
+*.db.wal
+*.db.wal.stale*
+
+# ---- Rebuildable source data (~135MB) -----------------------------------
+# Raw NHS England downloads. Reproducible from the URL manifests that ARE
+# committed (scripts/rtt_urls.txt, dm01_urls.txt, ae_urls.txt, gpad_urls.txt)
+# plus scripts/download_rtt.sh. Committing 135MB of third-party open data that
+# anyone can re-download would bloat the clone for no benefit.
+data_raw/
+
+# ---- Build and editor noise ---------------------------------------------
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+.venv/
+venv/
+node_modules/
+
+# ---- Scratch and render artefacts ---------------------------------------
+docs/_preview/
+docs/_p2/
+docs/_c2/
+docs/_chk/
+*.tmp
+
+# ---- Excel and Tableau lock files ---------------------------------------
+~$*.xlsx
+~$*.docx
+*.twbr

@@ -1,0 +1,14 @@
+provider_org_code,provider_org_name,primary_site_name,la_code,la_name,catchment_caveat
+REM,LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST,Royal Liverpool / Aintree,E08000012,Liverpool,Aintree site draws significantly from Sefton too
+RBL,WIRRAL UNIVERSITY TEACHING HOSPITAL NHS FOUNDATION TRUST,Arrowe Park Hospital,E08000015,Wirral,
+RBN,MERSEY AND WEST LANCASHIRE TEACHING HOSPITALS NHS TRUST,Whiston Hospital,E08000011,Knowsley,"Post-2023 merger trust also runs St Helens Hospital (St Helens LA) and Southport & Formby District General (Sefton LA) - Whiston is the largest/main emergency site, chosen as the single-LA anchor, not a claim the whole trust is Knowsley-only"
+RBQ,LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST,Thomas Drive site,E08000012,Liverpool,Regional specialist centre - catchment extends across the whole ICB and beyond
+RBS,ALDER HEY CHILDRENS NHS FOUNDATION TRUST,Alder Hey (Eaton Road),E08000012,Liverpool,Regional specialist paediatric centre - catchment extends across the whole ICB and beyond
+RBT,MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST,Leighton Hospital (Crewe),E06000049,Cheshire East,
+REN,THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST,Clatterbridge (Bebington),E08000015,Wirral,Regional specialist cancer centre - catchment extends across the whole ICB and beyond
+REP,LIVERPOOL WOMENS NHS FOUNDATION TRUST,Crown Street,E08000012,Liverpool,Regional specialist centre - catchment extends across the whole ICB and beyond
+RET,THE WALTON CENTRE NHS FOUNDATION TRUST,Walton,E08000012,Liverpool,Regional specialist neuro centre - catchment extends across the whole ICB and beyond
+RJN,EAST CHESHIRE NHS TRUST,Macclesfield District General,E06000049,Cheshire East,
+RJR,COUNTESS OF CHESTER HOSPITAL NHS FOUNDATION TRUST,Countess of Chester,E06000050,Cheshire West and Chester,
+RW4,MERSEY CARE NHS FOUNDATION TRUST,"HQ (V7, Liverpool)",E08000012,Liverpool,"Mental health trust operating across most of the ICB's LAs - HQ location used as a single-site simplification, not a claim of Liverpool-only catchment"
+RWW,WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST,Warrington Hospital,E06000007,Warrington,Also runs Halton General (Halton LA)

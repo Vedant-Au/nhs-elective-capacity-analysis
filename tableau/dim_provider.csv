@@ -1,0 +1,13 @@
+provider_org_code,provider_org_name,provider_type,in_core_analysis,la_name,catchment_caveat,la_imd_rank,la_health_imd_rank,higher_deprivation
+REM,LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST,acute,True,Liverpool,Aintree site draws significantly from Sefton too,4,3,True
+RBL,WIRRAL UNIVERSITY TEACHING HOSPITAL NHS FOUNDATION TRUST,acute,True,Wirral,,56,21,False
+RBN,MERSEY AND WEST LANCASHIRE TEACHING HOSPITALS NHS TRUST,acute,True,Knowsley,"Post-2023 merger trust also runs St Helens Hospital (St Helens LA) and Southport & Formby District General (Sefton LA) - Whiston is the largest/main emergency site, chosen as the single-LA anchor, not a claim the whole trust is Knowsley-only",3,2,True
+RBQ,LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST,specialist,True,Liverpool,Regional specialist centre - catchment extends across the whole ICB and beyond,4,3,True
+RBS,ALDER HEY CHILDRENS NHS FOUNDATION TRUST,specialist,True,Liverpool,Regional specialist paediatric centre - catchment extends across the whole ICB and beyond,4,3,True
+RBT,MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST,acute,True,Cheshire East,,131,96,False
+REN,THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST,specialist,True,Wirral,Regional specialist cancer centre - catchment extends across the whole ICB and beyond,56,21,False
+REP,LIVERPOOL WOMENS NHS FOUNDATION TRUST,specialist,True,Liverpool,Regional specialist centre - catchment extends across the whole ICB and beyond,4,3,True
+RET,THE WALTON CENTRE NHS FOUNDATION TRUST,specialist,True,Liverpool,Regional specialist neuro centre - catchment extends across the whole ICB and beyond,4,3,True
+RJN,EAST CHESHIRE NHS TRUST,acute,True,Cheshire East,,131,96,False
+RJR,COUNTESS OF CHESTER HOSPITAL NHS FOUNDATION TRUST,acute,True,Cheshire West and Chester,,112,74,False
+RWW,WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST,acute,True,Warrington,Also runs Halton General (Halton LA),109,60,False

@@ -1,0 +1,333 @@
+# =============================================================================
+# Healthcare Capacity Optimisation Toolkit — engagement configuration
+#
+# This file is the whole of what changes between engagements. Nothing in
+# scripts/toolkit/ references Cheshire and Merseyside, the RTT dataset, or any
+# figure below; move to a different ICB, a different waiting-list domain or a
+# different cost basis by copying this file and editing it.
+#
+# Every parameter carries an evidence grade. The grade is not decoration — it
+# drives the uncertainty axis of the scenario-selection matrix, so mislabelling
+# a guess as sourced will change which scenarios the toolkit builds.
+#   1  Sourced      published national dataset covering the current period
+#   2  Measured     derived from the warehouse with a quantified interval
+#   3  Anchored     extrapolated from data or a stated policy target
+#   4  Unsourced    analyst judgement; no published figure exists
+# =============================================================================
+
+engagement:
+  name: NHS Cheshire and Merseyside ICB
+  code: QYG
+  domain: Elective recovery — over-52-week RTT breaches
+  horizon_months: 18
+  currency_symbol: "£"
+
+warehouse:
+  path: /tmp/wh.db
+  # Providers in scope. `predicate` is applied to dim_provider.
+  provider_predicate: "in_core_analysis = true"
+  # Providers treated as the outsourcing pool (excluded from the in-scope set).
+  outsourcing_predicate: "provider_type = 'independent_sector'"
+  trailing_months: 6
+
+# How catchment disadvantage is defined for the equity constraint. Providers at
+# or below the median on this field are the "higher need" group.
+equity:
+  dimension_table: dim_provider_local_authority
+  dimension_join: la_code
+  lookup_table: dim_imd2019_local_authority
+  rank_field: imd_rank_of_avg_rank
+  # A LOW rank means MORE deprived in the IMD. State the direction explicitly:
+  # getting this backwards has already caused one documented misreading on this
+  # engagement, and the toolkit cannot infer it.
+  low_rank_means_higher_need: true
+  tolerance_pp: 0.15
+
+# -----------------------------------------------------------------------------
+# Cost model. Unit costs are engagement-specific; the arithmetic that combines
+# them is not, and lives in the toolkit.
+# -----------------------------------------------------------------------------
+costs:
+  source: NHS England National Cost Collection 2024/25, National Schedule of NHS
+    costs, Summary HRG tab, England-wide, 206 providers
+  treatment_components:
+    - {name: Elective inpatient, unit_cost: 6624.0, national_activity: 1255967, grade: 1}
+    - {name: Day case, unit_cost: 1078.0, national_activity: 7680341, grade: 1}
+  non_admitted_unit_cost: {name: Outpatient procedures, unit_cost: 233.0, grade: 1}
+  # Diagnostic currencies, matched to the categories the diagnostic dataset
+  # actually reports. Shares are measured from the warehouse at runtime.
+  diagnostic_currencies:
+    imaging: {unit_cost: 140.0, grade: 1}
+    audiology: {unit_cost: 107.0, grade: 1}
+    other_physiological: {unit_cost: 90.0, grade: 1}
+    endoscopy: {unit_cost: 233.0, grade: 1}
+  # Payment policy: whether outsourced activity is priced differently from
+  # in-house. Under the 2025/26 NHS Payment Scheme it is not — the marginal-rate
+  # mechanism was removed. Verified 2026-08-08.
+  outsourcing_price_multiplier: 1.00
+  outsourcing_price_note: 2025/26 NHS Payment Scheme pays NHS and independent
+    sector the same unit price for elective activity. No marginal rate.
+
+# -----------------------------------------------------------------------------
+# Delivery levers. Each is a way of converting money into cleared pathways.
+# `cap_basis` selects how the capacity ceiling is derived in the toolkit.
+# -----------------------------------------------------------------------------
+levers:
+  x1:
+    name: In-house treatment capacity
+    cap_basis: trailing_activity          # ceiling = trailing activity x growth
+    growth_rate: 0.15
+    growth_grade: 3
+    growth_basis: Anchored on the Elective Recovery Fund's national 10% activity
+      increase target, plus a buffer.
+    scale_by_bed_headroom: true
+    price: treatment
+    evidence_weak: false
+  x2:
+    name: Independent-sector outsourcing
+    cap_basis: outsourcing_pool           # ceiling = current IS activity x growth
+    growth_rate: 0.50
+    growth_grade: 4
+    growth_basis: Analyst assumption. No published measure of independent-sector
+      spare elective capacity exists for this ICB.
+    price: treatment_outsourced
+    evidence_weak: true
+  x3:
+    name: Diagnostic capacity
+    cap_basis: trailing_activity
+    growth_rate: 0.10
+    growth_grade: 3
+    growth_basis: Set below the in-house rate because the lever is indirect.
+    price: diagnostic
+    evidence_weak: true
+
+bed_headroom_floor: 0.10
+
+# The conversion ratio that prices the diagnostic lever. On this engagement it
+# is the only parameter with no published source, and the scenario analysis
+# shows the recommendation turns on it.
+diagnostic_conversion:
+  tests_per_pathway: 1.75
+  grade: 4
+  basis: No NHS dataset publishes this ratio. It is an analyst estimate.
+
+budget:
+  default: 15000000.0
+  grade: 4
+  basis: No ICB-level elective recovery budget is published at any level. Set as
+    a deliberately binding illustrative envelope, never as a sourced figure.
+
+# -----------------------------------------------------------------------------
+# Driving forces — environmental uncertainties the organisation does NOT
+# control. Anything the organisation chooses belongs under `strategies`.
+# `range_from` may be `config` (low/high stated here) or `forecast_interval`
+# (taken from the warehouse's own Monte Carlo forecast at horizon end).
+# -----------------------------------------------------------------------------
+driving_forces:
+  - key: budget
+    cluster: Funding settlement
+    pestel: Political / Economic
+    label: Recovery funding envelope available over the horizon
+    range_from: config
+    low: 7500000.0
+    high: 30000000.0
+    low_label: "£7.5m — constrained settlement"
+    high_label: "£30m — expanded recovery funding"
+
+  - key: demand_mult
+    cluster: Backlog trajectory
+    pestel: Social / Economic
+    label: Backlog to be cleared, relative to central forecast
+    range_from: forecast_interval
+    low_label: p5 — backlog undershoots forecast
+    high_label: p95 — backlog overshoots forecast
+
+  - key: is_growth
+    cluster: Independent-sector capacity
+    pestel: Economic / Political
+    label: Independent-sector headroom above current commissioned activity
+    range_from: config
+    low: 0.20
+    high: 0.80
+    low_label: "+20% — sector at practical capacity"
+    high_label: "+80% — sector scales readily"
+
+  - key: inhouse_growth
+    cluster: In-house productivity
+    pestel: Technological / Social
+    label: Achievable uplift in in-house completions
+    range_from: config
+    low: 0.05
+    high: 0.25
+    low_label: "+5% — productivity stalls"
+    high_label: "+25% — sustained productivity gain"
+
+  - key: diag_tests_per_pathway
+    cluster: Diagnostic conversion
+    pestel: Technological
+    label: Diagnostic tests required to unlock one completed pathway
+    range_from: config
+    low: 1.25
+    high: 3.50
+    low_label: 1.25 — efficient conversion
+    high_label: 3.50 — test-heavy pathways
+    range_note: The upper bound deliberately straddles the point at which the
+      diagnostic and treatment levers become indifferent. A range that stopped
+      short of the tipping point would conceal the only decision in the model.
+
+  - key: tariff_mult
+    cluster: Payment policy and cost base
+    pestel: Political / Legal
+    label: Unit cost of activity relative to the sourced cost baseline
+    range_from: config
+    low: 0.90
+    high: 1.20
+    low_label: "-10% — costs contained"
+    high_label: "+20% — cost or policy inflation"
+    range_note: Graded low-uncertainty on provenance, but ranged anyway. The
+      removal of the ERF marginal rate for 2025/26 is direct evidence that
+      payment policy changes materially between years.
+
+# -----------------------------------------------------------------------------
+# Candidate strategies. Each is a constraint set over the same optimisation, so
+# all are evaluated on identical terms. `flexible` and `insurable` are analyst
+# judgement on a 1-5 scale and are reported as judgement, never as computation.
+# -----------------------------------------------------------------------------
+strategies:
+  - code: S0
+    name: Hold position
+    summary: Commit no additional funding. The backlog follows its
+      business-as-usual trajectory.
+    spec: {spend_cap: 0.0}
+    rationale: A do-nothing baseline is the only way to state what the other
+      strategies buy.
+    flexible: 5
+    insurable: 5
+    flex_note: Fully reversible — no commitment is made.
+    insure_note: No downside to insure against beyond the backlog itself.
+    institutional: High legitimacy risk. Regulator and public expectation is
+      visible action on long waits.
+
+  - code: S1
+    name: Unconstrained optimisation
+    summary: Allocate the full envelope wherever the model clears most breaches,
+      subject to the standing equity tolerance.
+    spec: {}
+    rationale: The unconstrained answer, carried forward so the value of every
+      added constraint can be read against it.
+    flexible: 3
+    insurable: 2
+    flex_note: Mixed — scalability depends on which levers the optimum selects,
+      which is not stable across scenarios.
+    insure_note: Hard to contract against, because the commitment is not
+      describable in advance of the solve.
+    institutional: Moderate risk. An allocation that changes shape whenever an
+      input is revised is hard to defend to provider boards.
+
+  - code: S2
+    name: NHS delivery only
+    summary: Deliver entirely through NHS providers — in-house treatment or
+      diagnostic capacity. No outsourcing.
+    spec: {lock: [x2]}
+    rationale: Tests the position that recovery money should build durable
+      internal capability.
+    flexible: 2
+    insurable: 2
+    flex_note: Low. Substantive capacity implies recruitment and estate
+      commitments that cannot be unwound within the horizon.
+    insure_note: Limited. Fixed costs persist if demand falls away.
+    institutional: High legitimacy within the provider field; aligns with
+      professional and staff-side expectations.
+
+  - code: S3
+    name: No in-house expansion
+    summary: Deliver by buying external activity and unlocking diagnostics. No
+      expansion of in-house treatment capacity.
+    spec: {lock: [x1]}
+    rationale: The opposite position — fastest access to activity, no long-term
+      cost base.
+    flexible: 5
+    insurable: 4
+    flex_note: High. Contracted volumes can be scaled or stopped between periods.
+    insure_note: Good. Volume risk sits with the provider under a per-case
+      contract.
+    institutional: Contested. Independent-sector reliance is politically
+      sensitive and attracts staff-side objection.
+
+  - code: S4
+    name: Diagnostic-led recovery
+    summary: Direct at least half the envelope to diagnostic capacity.
+    spec: {min_share: {x3: 0.50}}
+    rationale: Tests whether unlocking the diagnostic constraint clears more
+      pathways per pound than adding treatment capacity directly.
+    flexible: 3
+    insurable: 2
+    flex_note: Moderate. Equipment and workforce commitments are partly
+      reversible; capital elements are not.
+    insure_note: Weak. Benefit depends on the unsourced conversion ratio.
+    institutional: Strong legitimacy — matches national diagnostic-capacity
+      policy direction.
+
+  - code: S5
+    name: Equity-first
+    summary: Require higher-need providers to receive at least their baseline
+      share of breaches cleared. No tolerance.
+    spec: {equity_tolerance_pp: 0.0}
+    rationale: Tests the cost of holding a hard proportionality floor.
+    flexible: 3
+    insurable: 2
+    flex_note: Moderate — the constraint binds allocation, not contract form.
+    insure_note: Weak.
+    institutional: Strong legitimacy. Directly answers the statutory duty to
+      reduce inequalities in access.
+
+  - code: S6
+    name: Diversified hedge
+    summary: Cap any single lever at 50% of spend, so the programme is never more
+      than half exposed to one delivery assumption.
+    spec: {max_share: {x1: 0.50, x2: 0.50, x3: 0.50}}
+    rationale: Built against the principle that keeping options open beats
+      optimising to a single expected case when key inputs are weakly evidenced.
+    flexible: 4
+    insurable: 3
+    flex_note: Good. Any one strand can be scaled back without collapsing the
+      programme.
+    insure_note: Moderate — the outsourced strand carries contractual protection.
+    institutional: Defensible. Spreads exposure across competing positions rather
+      than adjudicating between them.
+
+  - code: S7
+    name: Treatment capacity only
+    summary: Fund treatment capacity and nothing through the diagnostic lever.
+    spec: {lock: [x3]}
+    rationale: Prices the diagnostic bet by showing what the programme delivers
+      if that assumption is set aside altogether.
+    flexible: 3
+    insurable: 3
+    flex_note: Mixed — depends on the in-house / outsourced split.
+    insure_note: Partial, through the outsourced component.
+    institutional: Low risk but low ambition. Treats the diagnostic constraint as
+      fixed.
+
+# -----------------------------------------------------------------------------
+# Objectives. `precision` is the level at which two results are treated as the
+# same result before ranking — it must be meaningful in the real world, because
+# ranking raw floating-point output lets solver tolerance decide tie-breaks.
+# -----------------------------------------------------------------------------
+objectives:
+  - key: breaches_cleared
+    label: Breaches cleared
+    direction: max
+    precision: 0
+  - key: breaches_cleared_higher_deprivation
+    label: Cleared in higher-need providers
+    direction: max
+    precision: 0
+  - key: breaches_per_million
+    label: Breaches cleared per million spent
+    direction: max
+    precision: 1
+  - key: delivery_risk_exposure
+    label: Delivery-risk exposure
+    direction: min
+    precision: 4

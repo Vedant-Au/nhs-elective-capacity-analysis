@@ -1,0 +1,94 @@
+# DM01 "CSV Extract - All Provider-Commissioner Data" download URLs.
+# Scraped from the real NHS England per-fiscal-year DM01 pages on 2026-08-07
+# (same session as the RTT pull) — not guessed or pattern-generated, since the
+# hash suffix NHS appends on each publish/revision isn't predictable. One row
+# per month, FY2019-20 through FY2025-26 (84 files), oldest first.
+#
+# Two months (Jul19, Aug19) use a different naming convention entirely
+# (date-prefixed, no hash suffix) — NHS hadn't standardised the DM01 filename
+# pattern yet in mid-2019. Not a scraping error, just an older convention.
+
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2019/09/DM01-APRIL-2019-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2019/09/DM01-MAY-2019-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2019/09/DM01-JUNE-2019-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2020/04/20190731-DM01-JULY-2019-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2020/04/20190831-DM01-AUGUST-2019-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-SEPTEMBER-2019-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-OCTOBER-2019-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-NOVEMBER-2019-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-DECEMBER-2019-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-JANUARY-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-FEBRUARY-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-MARCH-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-APRIL-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-MAY-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-JUNE-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-JULY-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-AUGUST-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-SEPTEMBER-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-OCTOBER-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-NOVEMBER-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/06/DM01-DECEMBER-2020-full-extract_WZ98PB.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-JANUARY-2021-full-extract_IXX3H.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-FEBRUARY-2021-full-extract_RY1VQ.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2021/05/DM01-MARCH-2021-full-extract-WT36C.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-APRIL-2021-full-extract_NQY17.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-MAY-2021-full-extract_C2AM1.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-JUNE-2021-full-extract_CF39Y.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-JULY-2021-full-extract_0MEGX.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-AUGUST-2021-full-extract_ST3RJ.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-SEPTEMBER-2021-full-extract_XM1XC.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-OCTOBER-2021-full-extract_U6KWA.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-NOVEMBER-2021-full-extract_1BBO3.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2022/08/DM01-DECEMBER-2021-full-extract_V5ZAY.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-JANUARY-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-FEBRUARY-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-MARCH-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-APRIL-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-MAY-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-JUNE-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-JULY-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-AUGUST-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-SEPTEMBER-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-OCTOBER-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-NOVEMBER-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-DECEMBER-2022-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/09/DM01-JANUARY-2023-full-extract_C3L10.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/04/DM01-FEBRUARY-2023-full-extract_C3L32.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2023/05/DM01-MARCH-2023-full-extract_OLEX2.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-APRIL-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-MAY-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-JUNE-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-JULY-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-AUGUST-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-SEPTEMBER-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-OCTOBER-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-NOVEMBER-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/08/DM01-DECEMBER-2023-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-JANUARY-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-FEBRUARY-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-MARCH-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-APRIL-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-MAY-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-JUNE-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-JULY-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-AUGUST-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-SEPTEMBER-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-OCTOBER-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-NOVEMBER-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/07/DM01-DECEMBER-2024-full-extract.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-JANUARY-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-FEBRUARY-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-MARCH-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-APRIL-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-MAY-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-JUNE-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-JULY-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-AUGUST-2025-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/11/DM01-SEPTEMBER-2025-full-extract_M0NX3.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2025/12/DM01-OCTOBER-2025-full-extract_F5GI8.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/01/DM01-NOVEMBER-2025-full-extract_8HM0N.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/02/DM01-DECEMBER-2025-full-extract_EDNKH.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/03/DM01-JANUARY-2026-full-extract_42P3N.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/04/DM01-FEBRUARY-2026-full-extract_M0N7G.zip
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/05/DM01-MARCH-2026-full-extract_32W3L.zip

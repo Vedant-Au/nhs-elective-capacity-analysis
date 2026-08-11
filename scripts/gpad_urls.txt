@@ -1,0 +1,15 @@
+/# GPAD (Appointments in General Practice) — Summary xlsx download URLs.
+# One snapshot per fiscal year (March of each FY), not all 84 months —
+# see docs/STATUS.md 2026-08-07 GPAD entry for the scope rationale.
+# Each URL individually scraped from its own NHS Digital publication page
+# on 2026-08-07 (hash-pathed files.digital.nhs.uk links are not guessable —
+# same discipline as ae_urls.txt/dm01_urls.txt).
+#
+# fiscal_year	source_page	url
+2019-20	https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/march-2020	https://files.digital.nhs.uk/F5/98B3B6/GP_APPT_Publication_March_2020.xlsx
+2020-21	https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/march-2021	https://files.digital.nhs.uk/0F/F6EFFC/GP_APPT_Publication_March%20_2021.xlsx
+2021-22	https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/march-2022	https://files.digital.nhs.uk/68/DA267E/GP_APPT_Publication_March_2022_V2.xlsx
+2022-23	https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/march-2023	https://files.digital.nhs.uk/20/B79BF3/GP_Enhanced_APPT_Publication_March_2023.xlsx
+2023-24	https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/march-2024	https://files.digital.nhs.uk/B7/2E1C2C/GP_Appointment_Publication_Summary_March_2024.xlsx
+2024-25	https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/march-2025	https://files.digital.nhs.uk/50/3C6722/GP_Appointment_Publication_Summary_March_2025.xlsx
+2025-26	https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/march-2026	https://files.digital.nhs.uk/4B/246A37/GP_Appointment_Publication_Summary_March_2026.xlsx

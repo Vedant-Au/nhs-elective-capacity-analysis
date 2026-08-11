@@ -1,0 +1,16 @@
+{
+  "model_assumption": 1.75,
+  "tipping_point": 3.343,
+  "observed_trailing_12m": 0.8390975165888644,
+  "observed_full_window": 0.7636204914896515,
+  "observed_min": 0.6043891611173933,
+  "observed_max": 0.9134893259998136,
+  "n_months_observed": 84,
+  "caveats": [
+    "DM01 covers 15 test types and no pathology, so it understates total diagnostic input per pathway.",
+    "Not every DM01 test sits on an RTT pathway, so it overstates the tests attributable to RTT completions.",
+    "The model parameter is marginal (tests to unlock one additional pathway); this proxy is an average across all activity. They are different quantities.",
+    "The two measurement biases run in opposite directions and neither is quantified, so no net correction is applied or implied."
+  ],
+  "conclusion": "The proxy does not settle the parameter and is not presented as doing so. It does establish that the observed DM01-to-completion ratio has never in 84 months of data approached the 3.34 level at which the recommended strategy would change. The direction of the recommendation is therefore better evidenced than the magnitude of the benefit it produces."
+}
