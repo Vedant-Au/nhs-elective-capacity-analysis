@@ -1,5 +1,15 @@
 # NHS Elective Capacity: Analysis, Optimisation and Scenario Strategy
 
+| | |
+|---|---|
+| **Role** | Self-directed, sole author · Aug 2026 |
+| **Question** | An ICB has a limited elective recovery budget and three ways to spend it. Where should the money go, and what would show the answer was wrong? |
+| **Answer** | The limit is money, not capacity. No delivery lever's ceiling binds until £31.9m, £69.7m or £107.1m, against £7.5m–£30m under consideration. |
+| **Scale** | 7 NHS England sources · 84 months · waiting list of 686,298, up 110% since April 2019 |
+| **Method** | DuckDB warehouse · forecasting and clustering in Python · linear-programme capacity optimiser (Excel Solver) · scenario model · Tableau story |
+| **Assurance** | Three defects caught in my own validation, one of which reversed the recommendation. A statistical claim was retracted. All documented in the repo. |
+| **Read first** | [One-page summary](one-pager.pdf) · [Board paper](docs/NHS_CM_Elective_Capacity_Board_Paper.docx) · [Interactive Tableau story](https://public.tableau.com/views/NHS_Cheshire_Merseyside_Capacity_Story/NHSCheshireMerseysideCapacityStory) · [Build log](docs/STATUS.md) |
+
 An end-to-end analytics and strategy engagement for **NHS Cheshire and Merseyside ICB (QYG)**, taken from raw open data through to a board-ready recommendation and a reusable toolkit.
 
 > **This is a self-directed project, not a commissioned piece of work.** There is no client and no stakeholder brief. It uses real NHS England open data and is built to the standard of a real ICB analytics engagement, including its assurance discipline. The recommendation is illustrative and has not been reviewed by anyone at the ICB.
